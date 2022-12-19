@@ -7,8 +7,8 @@ words = ['poleaxe', 'sword', 'mouse', 'castle']
 visual = [['_', '_', '_', '_', '_', '_'], ['|', ' ', ' ', ' ', '|', ' '], ['|', ' ', ' ', ' ', ' ', ' '],
           ['|', ' ', ' ', ' ', ' ', ' '], ['|', ' ', ' ', ' ', ' ', ' '], ['|', ' ', ' ', ' ', ' ', ' ']]
 
-for row in visual:
-    print(*row)
+# for row in visual:
+#     print(*row)
 
 # visual[2][4] = 'O'
 # visual[3][3] = '/'
@@ -16,9 +16,9 @@ for row in visual:
 # visual[3][5] = '\\'
 # visual[4][3] = '/'
 # visual[4][5] = '\\'
-
-for row in visual:
-    print(*row)
+#
+# for row in visual:
+#     print(*row)
 
 word_to_guess = random.choice(words)
 print(word_to_guess)
@@ -29,7 +29,7 @@ print(hidden_word)
 
 
 def asker():
-    ask_letter = input('What\'s your letter lad \n -->')
+    ask_letter = input('What\'s your letter ? \n -->')
     return ask_letter
 
 
@@ -43,11 +43,28 @@ def asker():
 
 def main():
     wrong = 0
-    letter = asker()
-    while letter not in word_to_guess:
+    while wrong <= 5:
         letter = asker()
-        wrong += 1
-        print(wrong)
+        if letter not in word_to_guess:
+            wrong += 1
+            letter = asker()
+        elif letter in word_to_guess:
+            print('Good')
+
+
+
+
+
+
+
+
+    #     wrong += 1
+    #     if wrong >= 6:
+    #         print('The End')
+    #         break
+    # else:
+    #     print('Good')
+    #     print(wrong)
 
 
 
